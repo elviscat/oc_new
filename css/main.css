@@ -801,7 +801,7 @@ input.search-form:hover {
 
 .panel-default>.panel-heading,
 .panel{
-  background-color: #e6e6e6; 
+  background-color: #c9e3f4; 
   border:0 none;
   box-shadow:none;
 }
@@ -841,7 +841,7 @@ input.search-form:hover {
 }
 
 .panel-heading.active{
-  background: #1f1f20;
+  background: #235c96;
 }
 
 .panel-heading.active .panel-title>a{
@@ -855,16 +855,17 @@ a.accordion-toggle  i{
   margin-top: -10px;
   text-align: center;
   margin-right: -15px;
-  background: #c9c9c9;
-}
-
-.panel-heading.active a.accordion-toggle i{
-  background: #c52d2f;
+  background: #235c96;
   color: #fff;
 }
 
+.panel-heading.active a.accordion-toggle i{
+  background: #f9e98c;
+  color: #124ca0;
+}
+
 .panel-heading.active a.accordion-toggle.collapsed i{
-  background: #c52d2f;
+  background: #edac64;
   color: #fff;
 }
 
@@ -2023,7 +2024,7 @@ textarea#message{
 }
 
 .blog_category li a:hover{
-  background:#c52d2f;
+  background:#2e4d99;
   color: #fff;
 }
 
@@ -2513,7 +2514,7 @@ shortcodes page css
 }
 
 #bottom ul li a:hover {
-  color: #c52d2f;
+  color: #2e4d99;
 }
 
 #bottom .widget {
