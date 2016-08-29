@@ -48,7 +48,7 @@ h4{
 }
 
 a {
-  color: #c52d2f;
+  color: #1c6aa9;
   -webkit-transition: color 300ms, background-color 300ms;
   -moz-transition: color 300ms, background-color 300ms;
   -o-transition:  color 300ms, background-color 300ms;
@@ -56,7 +56,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: #d43133;
+  color: #6aa6ce;
 }
 
 hr {
@@ -1595,8 +1595,8 @@ ul.social_icons li  a i{
 .portfolio-filter > li a:hover,
 .portfolio-filter > li a.active{
   color:#fff;
-  background: #c52d2f;
-  border: 1px solid #c52d2f;
+  background: #2067bc;
+  border: 1px solid #2067bc;
   box-shadow: none;
   -webkit-box-shadow: none;
 }
@@ -2551,5 +2551,23 @@ shortcodes page css
 
 .map{text-align:center;
 margin-top:20px;}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #1D69A8;
+    color: white;
+}
 
 
