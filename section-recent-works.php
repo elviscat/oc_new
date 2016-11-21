@@ -68,9 +68,8 @@
 						break;
 					}
 				}
-
 			}
-						
+					
 		}
 		
 		/*
@@ -116,11 +115,11 @@
 		// print "<img class=\"img-responsive\" src=\"".$img_address."\" alt=\"\" width=\"600\" height=\"400\">\n";
 		print "<div class=\"overlay\">\n";
 		print "<div class=\"recent-work-inner\">\n";
-		print "<h3><a href=\"http://www.oc.ntu.edu.tw/?p=".$post_id."\">".$post_title."</a></h3>\n";
+		print "<h3><a href=\"page.php?p=".$post_id."\">".$post_title."</a></h3>\n";
 		print "<p>".$post_date."</p>\n";
 		// print "<a class=\"preview\" href=\"images/portfolio/full/item1.png\" rel=\"prettyPhoto\"><i class=\"fa fa-eye\"></i>Read more</a>\n";
 		// print "<a class=\"preview\" href=\"http://www.oc.ntu.edu.tw/?p=".$post_id."\" rel=\"prettyPhoto\"><i class=\"fa fa-eye\"></i>Read more</a>\n";
-		print "<a href=\"http://www.oc.ntu.edu.tw/?p=".$post_id."\" ><i class=\"fa fa-eye\"></i>Read more</a>\n";
+		print "<a href=\"page.php?p=".$post_id."\" ><i class=\"fa fa-eye\"></i>Read more</a>\n";
 		print "</div> \n";
 		print "</div> \n";
 		print "</div> \n";

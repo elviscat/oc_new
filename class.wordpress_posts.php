@@ -69,6 +69,30 @@ class WORDPRESS_POSTS
 			}
 		}
 		return $results;
-	}		
+	}
+
+
+
+	public function getPostContent($post_id)
+	{
+		
+		settype($post_id, 'integer');
+		
+
+		// please note %d in the format string, using %s would be meaningless
+		$query = sprintf("SELECT  * FROM `wp_posts` WHERE id = %d", $post_id);
+		
+		
+		$stmt = $this->conn->prepare($query);
+
+		// initialise an array for the results 
+		$reuslts = array();
+		if ($stmt->execute()) {
+			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$results[] = $row;
+			}
+		}
+		return $results;
+	}	
 }
 ?>
