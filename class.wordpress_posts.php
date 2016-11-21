@@ -46,30 +46,46 @@ class WORDPRESS_POSTS
 	
 	
 	// SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '5' ORDER BY a.post_date DESC Limit 0, 10
-	public function getPostContentList($category_type_id, $number_of_content_per_page)
+	public function getPostContentList($category_id, $number_of_content_per_page)
 	{
 		// REF
 		// PHP_ SQL Injection - Manual
 		// http://php.net/manual/en/security.database.sql-injection.php
 
-		settype($category_type_id, 'integer');
+		settype($category_id, 'integer');
 		settype($number_of_content_per_page, 'integer');
-
+		
+		
+		$term_taxonomy_id = '';
+		$query = sprintf("SELECT * FROM `wp_term_taxonomy` WHERE term_id = %d", $category_id);
+		// print $query;
+		$stmt = $this->conn->prepare($query);
+		if ($stmt->execute()) {
+			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$term_taxonomy_id = $row['term_taxonomy_id'];
+			}
+		}
+		
+		
+		// print 'term_taxonomy_id<br>';
+		// print $term_taxonomy_id;
+		
 		// please note %d in the format string, using %s would be meaningless
-		$query = sprintf("SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '%d' AND a.post_status = 'publish' ORDER BY a.post_date DESC Limit 0, %d", $category_type_id, $number_of_content_per_page);
+		$query = sprintf("SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '%d' AND a.post_status = 'publish' ORDER BY a.post_date DESC Limit 0, %d", $term_taxonomy_id, $number_of_content_per_page);
 		
 		
 		$stmt = $this->conn->prepare($query);
 
 		// initialise an array for the results 
-		$reuslts = array();
+		$results = array();
 		if ($stmt->execute()) {
 			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				$results[] = $row;
 			}
-		}
+		} 
 		return $results;
 	}
+
 
 
 
@@ -80,7 +96,7 @@ class WORDPRESS_POSTS
 		
 
 		// please note %d in the format string, using %s would be meaningless
-		$query = sprintf("SELECT  * FROM `wp_posts` WHERE id = %d", $post_id);
+		$query = sprintf("SELECT * FROM `wp_posts` WHERE id = %d", $post_id);
 		
 		
 		$stmt = $this->conn->prepare($query);

@@ -1,6 +1,10 @@
 <?php
 	require_once('header.html');
 ?>
+
+
+
+
 <section id="blog" class="container">
         <div class="center">
          

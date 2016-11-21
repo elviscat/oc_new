@@ -19,7 +19,7 @@
 
 
 <?php
-	$content_array = $recent_works->getPostContentList('4768', '1'); // 徵人	
+	$content_array = $wordpress_posts->getPostContentList('4767', '1'); // 徵人	
 	// print_r($content_array);
 	// SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '5' ORDER BY a.post_date DESC Limit 0, 10
 	foreach ($content_array as $key => $value) {
@@ -59,7 +59,7 @@
 		
 	}
 
-	$content_array = $recent_works->getPostContentList('11', '1'); // 招生	
+	$content_array = $wordpress_posts->getPostContentList('11', '1'); // 招生	
 	// print_r($content_array);
 	// SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '5' ORDER BY a.post_date DESC Limit 0, 10
 	foreach ($content_array as $key => $value) {
@@ -97,7 +97,7 @@
 		print "</div> \n";				
 	}
 
-	$content_array = $recent_works->getPostContentList('3033', '1'); // 船務室	
+	$content_array = $wordpress_posts->getPostContentList('3032', '1'); // 船務室	
 	// print_r($content_array);
 	// SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '5' ORDER BY a.post_date DESC Limit 0, 10
 	foreach ($content_array as $key => $value) {
