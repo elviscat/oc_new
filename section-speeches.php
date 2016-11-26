@@ -22,7 +22,8 @@
 	// SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '5' ORDER BY a.post_date DESC Limit 0, 10
 
 	
-	print "<div class=\"col-xs-12 col-sm-8 wow fadeInDown\">\n";
+	// print "<div class=\"col-xs-12 col-sm-8 wow fadeInDown\">\n";
+	print "<div class=\"col-xs-12 col-sm-12 wow fadeInDown\">\n";
 		print "<div class=\"tab-wrap\">\n";
 			print "<div class=\"media\">\n";
 				print "<div class=\"parrent pull-left\">\n";

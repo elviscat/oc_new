@@ -20,6 +20,8 @@
 	$content_array = $wordpress_posts->getPostContent($post_id);
 	print "<section id=\"page\" class=\"container\">\n";
 		print "<div class=\"center\">\n";
+			print "<div class=\"col-xs-2 col-sm-2 blog-content\">\n";
+			print "</div>";
 			print "<div class=\"col-xs-8 col-sm-8 blog-content\">\n";	
 	if ( sizeof($content_array) == 1) {
 	// print_r($content_array);
@@ -46,7 +48,8 @@
 		// echo mb_substr($content,0,15,"UTF-8");
 		// 
 		// $post_title = mb_substr($post_title,0,25,"UTF-8").'...';
-		print '<h2>'.$post_title.'</h2>';
+		print '<h3>'.$post_title.'</h3>';
+		print '<br><br>';
 		
 		$post_content_array = explode(PHP_EOL, $post_content);
 		// print sizeof($post_content_array);
@@ -60,6 +63,8 @@
 	} else {
 		print "<p style=\"text-align:left;\">Empty Post!!</p>\n";
 	}
+		print "<div class=\"col-xs-2 col-sm-2 blog-content\">\n";
+		print "</div>";
 		print "</div>\n";
 		print "</div>\n";
 	print "</section>\n"; 

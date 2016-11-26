@@ -86,7 +86,8 @@
         </a>
     </section><!--/#main-slider-->
     
-	<?php require_once("section-recent-works.php"); ?>
+	<?php // require_once("section-recent-works.php"); ?>
+	<?php require_once("section-recent-works-test.php"); ?>
 
     <section id="feature" >
         <div class="container">

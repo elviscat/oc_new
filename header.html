@@ -18,15 +18,28 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="shortcut icon" href="images/ico/iontu.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head><!--/head-->
 
 <body class="homepage">
-
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var $window = $(window);
+		var nav = $('#main-navigation');
+		$window.scroll(function(){
+			if ($window.scrollTop() >= 100) {
+				nav.addClass('fixed-header');
+			} else {
+				nav.removeClass('fixed-header');
+			}
+		});
+	});
+	</script>
     <header id="header">
         <!--
         <div class="top-bar">
@@ -59,7 +72,7 @@
         <!--/.container--> 
         <!--/.top-bar-->
 
-        <nav class="navbar navbar-inverse" role="banner">
+        <nav id="main-navigation" class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -94,7 +107,7 @@
                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">人員<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="professor.php">師資介紹</a></li>
+                                <li><a href="faculty.php">師資介紹</a></li>
                                 <li><a href="ocadmin.php">行政人員</a></li>
                                 <li><a href="tech.php">稀少性研究人員</a></li>
                                 <li><a href="page.php?p=12816">延攬學者</a></li>
@@ -131,8 +144,9 @@
                             <ul class="dropdown-menu">
                                 <li><a href="category.php?c=4767">徵人</a></li>
                                 <li><a href="category.php?c=11">招生</a></li>
-                                 <li><a href="category.php?c=12">演講</a></li>
-                                 <li><a href="category.php?c=">其他所務訊息</a></li>
+                                <li><a href="category.php?c=12">演講</a></li>
+								<li><a href="category.php?c=3032">船務室公告</a></li>
+                                <li><a href="category.php?c=">其他所務訊息</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">

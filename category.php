@@ -23,6 +23,8 @@
 		$page_title = '招生';
 	} else if (  $category_id == '12' ) {
 		$page_title = '演講';
+	} else if (  $category_id == '3032' ) {
+		$page_title = '海洋研所船務室公告';
 	} else if (  $category_id == '' ) {
 		$page_title = '其他所務訊息';
 	}

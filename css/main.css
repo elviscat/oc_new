@@ -110,6 +110,12 @@ a:focus {
   margin-bottom: 20px;
 }
 
+.center h3{
+  font-size: 25px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
 .media>.pull-left{
   margin-right: 20px;
 }
@@ -189,6 +195,15 @@ body > section {
 
 #header .search{
   display: inline-block;
+}
+
+
+nav.fixed-header{
+  position: fixed;
+  top:0; left:0;
+  width: 100%; 
+}	
+	
 }
 
 .navbar>.container .navbar-brand{

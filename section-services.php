@@ -51,7 +51,7 @@
 					print "<h3 class=\"media-heading\">徵人</h3>\n";
 					print "<p>".$post_title."</p>\n";
 					print "<p>".$post_date."</p>\n";
-					print "<a class=\"btn-slide animation animated-item-3\" href=\"page.php?p=".$post_id."\">Read More</a>\n";
+					print "<a class=\"btn-slide animation animated-item-3\" href=\"category.php?c=4767\">Read More</a>\n";
 				print "</div> \n";
 			print "</div> \n";
 		print "</div> \n";			
@@ -91,7 +91,7 @@
 					print "<h3 class=\"media-heading\">招生</h3>\n";
 					print "<p>".$post_title."</p>\n";
 					print "<p>".$post_date."</p>\n";
-					print "<a class=\"btn-slide animation animated-item-3\" href=\"page.php?p=".$post_id."\">Read More</a>\n";
+					print "<a class=\"btn-slide animation animated-item-3\" href=\"category.php?c=11\">Read More</a>\n";
 				print "</div> \n";
 			print "</div> \n";
 		print "</div> \n";				
@@ -129,7 +129,7 @@
 					print "<h3 class=\"media-heading\">船務室</h3>\n";
 					print "<p>".$post_title."</p>\n";
 					print "<p>".$post_date."</p>\n";
-					print "<a class=\"btn-slide animation animated-item-3\" href=\"page.php?p=".$post_id."\">Read More</a>\n";
+					print "<a class=\"btn-slide animation animated-item-3\" href=\"category.php?c=3032\">Read More</a>\n";
 				print "</div> \n";
 			print "</div> \n";
 		print "</div> \n";				
