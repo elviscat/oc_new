@@ -140,7 +140,7 @@ class WORDPRESS_POSTS
 		$stmt = $this->conn->prepare($query);
 
 		// initialise an array for the results 
-		$reuslts = array();
+		$results = array();
 		if ($stmt->execute()) {
 			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				$results[] = $row;
@@ -208,6 +208,52 @@ class WORDPRESS_POSTS
 				$results[] = $row;
 			}
 		} 
+		return $results;
+	}
+	
+	// SELECT * FROM `wp_posts` WHERE post_type = '%s'
+	public function getPostContentListByPost_Type($post_type)
+	{
+		
+		settype($post_type, 'string');
+		
+
+		// please note %d in the format string, using %s would be meaningless
+		$query = sprintf("SELECT * FROM `wp_posts` WHERE post_type = '%s'", $post_type);
+		
+		
+		$stmt = $this->conn->prepare($query);
+
+		// initialise an array for the results 
+		$results = array();
+		if ($stmt->execute()) {
+			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$results[] = $row;
+			}
+		}
+		return $results;
+	}
+	
+	// SELECT * FROM `wp_posts` WHERE ID = '%d'
+	public function getPostAttachmentContent($post_id)
+	{
+		
+		settype($post_type, 'integer');
+		
+
+		// please note %d in the format string, using %s would be meaningless
+		$query = sprintf("SELECT * FROM `wp_posts` WHERE ID = '%d'", $post_id);
+		
+		
+		$stmt = $this->conn->prepare($query);
+
+		// initialise an array for the results 
+		$results = array();
+		if ($stmt->execute()) {
+			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$results[] = $row;
+			}
+		}
 		return $results;
 	}	
 	
