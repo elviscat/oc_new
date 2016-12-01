@@ -1,3 +1,11 @@
+<?php
+
+// $title_text = "IONTU | 臺灣大學海洋研究所";
+
+// if ( isset($_GET['t']) && $_GET['t'] != "" ) $title_text = $_GET['t'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>IONTU | 臺灣大學海洋研究所</title>
+    <title><?php print $title_text; ?></title>
 	
 	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -108,9 +116,10 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">人員<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="faculty.php">師資介紹</a></li>
-                                <li><a href="ocadmin.php">行政人員</a></li>
+                                <li><a href="staff.php">行政人員</a></li>
                                 <li><a href="tech.php">稀少性研究人員</a></li>
-                                <li><a href="page.php?p=12816">延攬學者</a></li>
+                                <!-- <li><a href="page.php?p=12816">延攬學者</a></li> -->
+								<li><a href="intl_scholar.php">延攬學者</a></li>
 								<li><a href="postdrs.php">博士後研究員</a></li>
                             </ul>
                         </li>
@@ -142,17 +151,17 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">消息公告<i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="category.php?c=4767">徵人</a></li>
+                                <li><a href="category.php?c=4769">本所消息</a></li>
+								<li><a href="category.php?c=4767">徵人</a></li>
                                 <li><a href="category.php?c=11">招生</a></li>
                                 <li><a href="category.php?c=12">演講</a></li>
 								<li><a href="category.php?c=3032">船務室公告</a></li>
-                                <li><a href="category.php?c=">其他所務訊息</a></li>
+                                <!-- <li><a href="category.php?c=">其他所務訊息</a></li> -->
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="resource.php">相關資源<i></i></a>
 							<!--<a href="page.php?p=136">相關資源<i></i></a>-->
-                            
                         </li>
                         
                         <!--<li><a href="blog.php">Blog</a></li> 

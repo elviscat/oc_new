@@ -85,7 +85,18 @@
 		// print $Post_List[0]['post_content']."<br>\n";
 		// print $Post_List[0]['post_content']."<br>\n";
 		$publication = $Post_List[0]['post_content'];
-		$publication_list = explode('著作目錄',$publication);
+		
+		
+		$publication = str_replace("\n","", $publication);
+		// <!--:tw--><!--:--><!--:en--><!--:-->
+		preg_match("/(.*)<!--:tw-->(.*)<!--:--><!--:en-->(.*)<!--:-->(.*)/", $publication, $publication_regex_output_array);
+		// print $publication;
+		// print_r($publication_regex_output_array);
+		
+		// print $publication_regex_output_array[3];
+		
+		$publication_list = explode('著作目錄',$publication_regex_output_array[2]);
+		// $publication_list = explode('著作目錄',$publication);
 		$publication_text = $publication_list[1];
 		print $publication_text;
 		

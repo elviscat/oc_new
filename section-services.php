@@ -134,6 +134,45 @@
 			print "</div> \n";
 		print "</div> \n";				
 	}
+	$content_array = $wordpress_posts->getPostContentList('4769', '1'); // 本所消息	
+	// print_r($content_array);
+	// SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '5' ORDER BY a.post_date DESC Limit 0, 10
+	foreach ($content_array as $key => $value) {
+		// print $key."\n";
+		// print_r($value);
+		
+		$post_id = $value['object_id'];
+		$post_title = $value['post_title'];
+		$post_content = $value['post_content'];
+		$post_date = $value['post_date'];
+		
+		
+		$post_title = strip_tags($post_title);
+		// $post_title = substr($post_title, 0, 52).'...';
+		// decreated on 161121-1030
+		// REF
+		// 解決PHP substr切割中文字問題 @ Bruse的日誌 __ 隨意窩 Xuite日誌.html 
+		// http://blog.xuite.net/chenbruse/bruse/13351768-%E8%A7%A3%E6%B1%BAPHP+substr%E5%88%87%E5%89%B2%E4%B8%AD%E6%96%87%E5%AD%97%E5%95%8F%E9%A1%8C
+		// echo mb_substr($content,0,15,"UTF-8");
+		// 
+		$post_title = mb_substr($post_title,0,25,"UTF-8").'...';
+
+		print "<div class=\"col-sm-6 col-md-4\">\n";
+			print "<div class=\"media services-wrap wow fadeInDown\">\n";
+				print "<div class=\"pull-left\">\n";
+					print "<img class=\"img-responsive\" src=\"images/services/job.png\">\n";
+				print "</div> \n";
+				print "<div class=\"media-body\">\n";
+					print "<h3 class=\"media-heading\">本所消息</h3>\n";
+					print "<p>".$post_title."</p>\n";
+					print "<p>".$post_date."</p>\n";
+					print "<a class=\"btn-slide animation animated-item-3\" href=\"category.php?c=4769\">Read More</a>\n";
+				print "</div> \n";
+			print "</div> \n";
+		print "</div> \n";			
+		
+		
+	}
 /*
 
 

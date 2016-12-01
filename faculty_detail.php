@@ -1,4 +1,8 @@
 <?php
+	$title_text = "師資介紹";
+?>
+
+<?php
 	require_once('header.html');
 ?>
 
@@ -28,6 +32,7 @@
 	$PostMeta_List = $wordpress_posts->getPostMeta_List($post_id);
 	if ( sizeof($PostMeta_List) >= 1 ) {
 		
+		// print_r($PostMeta_List);
 		
 		$name = '';
 		$faculty_degree = '';
@@ -35,11 +40,13 @@
 		$tel2 = '';
 		$fax ='';
 		$room = '';
-		$email = '';
+		$email1 = '';
+		$email2 = '';
 		$website = '';
 		$exp = '';
 		$domain = '';
 		$publishes = '';
+		$image_photo_id = '';
 		
 		foreach ($PostMeta_List as $key3 => $value3) {
 			// print_r($value3);
@@ -62,8 +69,11 @@
 				$room = $value3['meta_value'];
 			}
 			if ( $value3['meta_key'] == 'email') {
-				$email = $value3['meta_value'];
-			}												
+				$email1 = $value3['meta_value'];
+			}
+			if ( $value3['meta_key'] == 'email2') {
+				$email2 = $value3['meta_value'];
+			}
 			if ( $value3['meta_key'] == 'website') {
 				$website = $value3['meta_value'];
 			}
@@ -76,18 +86,29 @@
 			if ( $value3['meta_key'] == 'publishes') {
 				$publishes = $value3['meta_value'];
 			}
+			if ( $value3['meta_key'] == 'photo') {
+				$image_photo_id = $value3['meta_value'];
+			}
 			
 		}
-		print $name."<br>\n";
-		print $faculty_degree."<br>\n";
-		print "電話一:".$tel1."<br>\n";
-		print "電話二:".$tel2."<br>\n";
-		print "傳真:".$fax."<br>\n";
-		print "研究室:".$room."<br>\n";
+		// print $image_photo_id;
+		$PostAttachmentContent = $wordpress_posts->getPostAttachmentContent($image_photo_id);
+		// print_r($PostAttachmentContent);
 		
-		print "專長領域:".$domain."<br>\n";
-		print "學經歷:".$exp."<br>\n";
-		print "研究成果與著作:".$publishes."<br>\n";
+		print "<h2> ".$name."</h2><br>\n";
+		print "<img src=\"".$PostAttachmentContent[0]['guid']."\"><br>\n";
+		print "<h3>".$faculty_degree."</h3><br>\n";
+		print "<b>電話一: </b>".$tel1."<br>\n";
+		print "<b>電話二: </b>".$tel2."<br>\n";
+		print "<b>傳真: </b>".$fax."<br>\n";
+		print "<b>電子郵件一: </b>".$email1."<br>\n";
+		print "<b>電子郵件二: </b>".$email2."<br>\n";
+		print "<b>網站: </b>".$website."<br>\n";
+		print "<b>研究室: </b>".$room."<br>\n";
+		
+		print "<b>專長領域: </b>".$domain."<br>\n";
+		print "<b>學經歷: </b>".$exp."<br>\n";
+		print "<b>研究成果與著作: </b><br>".$publishes."<br>\n";
 		
 		
 		

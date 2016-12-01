@@ -20,7 +20,7 @@
     <th>業務內容</th>
   </tr>
   <tr>
-    <td><a href="">張宏毅</a></td>
+    <td><a href="page.php?p=13709">張宏毅</a></td>
     <td>三等貴儀技術師</td>
    
     <td>02-33661615</td>
@@ -28,7 +28,7 @@
     <td>海洋探測儀器研發</td>
   </tr>
    <tr>
-    <td><a href="">邱協棟</a></td>
+    <td><a href="page.php?p=13717">邱協棟</a></td>
     <td>三等貴儀技術師</td>
     
     <td>02-23636040 #132</td>

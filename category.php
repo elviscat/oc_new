@@ -21,6 +21,8 @@
 		$page_title = '徵才專區';
 	} else if (  $category_id == '11' ) {
 		$page_title = '招生';
+	} else if (  $category_id == '4769' ) {
+		$page_title = '本所消息';
 	} else if (  $category_id == '12' ) {
 		$page_title = '演講';
 	} else if (  $category_id == '3032' ) {

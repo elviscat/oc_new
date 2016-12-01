@@ -107,7 +107,7 @@
                         	<i class="fa fa-bullhorn"></i>
                             -->
                             <h2>海洋生物及漁業組</h2>
-                            <h3>海洋生物與生態，漁業生態</h3>
+                            <h3>海洋生物多樣性、海洋生態與演化、漁業科學與資源管理</h3>
                         </div>
                     </div><!--/.col-md-4-->
 
@@ -117,7 +117,7 @@
                             <img class="img-responsive" src="images/services/CHEM.png">
                             </div>
                             <h2>海洋化學組</h2>
-                            <h3>海洋同位素檢定</h3>
+                            <h3>海洋生物地球化學、同位素化學、沉積物化學、海洋環境污染...</h3>
                         </div>
                     </div><!--/.col-md-4-->
 
@@ -127,7 +127,7 @@
                             <img class="img-responsive" src="images/services/GEO.png">
                             </div>
                             <h2>海洋地質及地物組</h2>
-                            <h3>研究海底下地質組成特色</h3>
+                            <h3>海洋地質、地球物理、地球化學</h3>
                         </div>
                     </div><!--/.col-md-4-->
                 
@@ -137,7 +137,7 @@
                             <img class="img-responsive" src="images/services/phy.png">
                             </div>
                             <h2>海洋物理組</h2>
-                            <h3>潮汐預報</h3>
+                            <h3>數值模擬、黑潮、南海內波，海氣交互，海洋聲學與環流動力結構</h3>
                         </div>
                     </div><!--/.col-md-4-->
 
@@ -147,7 +147,7 @@
                             <img class="img-responsive" src="images/services/odb.png">
                             </div>
                             <h2>海洋學門資料庫</h2>
-                            <h3>技術支援</h3>
+                            <h3>整合、校正、品管科技部海洋學門研究調查成果</h3>
                         </div>
                     </div><!--/.col-md-4-->
 
@@ -157,7 +157,7 @@
                             <img class="img-responsive" src="images/services/ship.png">
                             </div>
                             <h2>海研一號</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+                            <h3>海洋研究探勘先鋒</h3>
                         </div>
                     </div><!--/.col-md-4-->
                     
@@ -177,7 +177,7 @@
                             <img class="img-responsive" src="images/services/MEIC.png">
                             </div>
                             <h2>貴儀中心海洋探勘組</h2>
-                            <h3>技術支援</h3>
+                            <h3>海洋科學探勘技術服務與儀器研發、製作等</h3>
                         </div>
                     </div><!--/.col-md-4-->
 

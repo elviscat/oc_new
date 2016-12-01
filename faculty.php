@@ -123,7 +123,7 @@
 											
 											}
 											print "\t\t\t\t\t\t</tr>\n";
-												print "<td><a href=\"professor_detail.php?i=".base64_encode($value2['id'])."\">".$name."</a></td>\n";
+												print "<td><a href=\"faculty_detail.php?i=".base64_encode($value2['id'])."\">".$name."</a></td>\n";
 												print "<td>".$faculty_degree."</td>\n";
 												print "<td> * 第 ".$dirno." 任所長 (".$dirtime.")</td>\n";
 												print "<td>".$email."</td>\n";
@@ -180,7 +180,7 @@
 											
 											}
 											print "\t\t\t\t\t\t</tr>\n";
-												print "<td><a href=\"professor_detail.php?i=".base64_encode($value2['id'])."\">".$name."</a></td>\n";
+												print "<td><a href=\"faculty_detail.php?i=".base64_encode($value2['id'])."\">".$name."</a></td>\n";
 												print "<td>".$faculty_degree."</td>\n";
 												print "<td>".$tel1."</td>\n";
 												print "<td>".$room."</td>\n";

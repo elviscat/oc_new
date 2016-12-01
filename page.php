@@ -39,8 +39,21 @@
 		$post_title = $value['post_title'];
 		$post_content = $value['post_content'];
 		$post_date = $value['post_date'];
-					
-		$post_title = strip_tags($post_title);
+		
+		
+		preg_match("/(.*)<!--:tw-->(.*)<!--:--><!--:en-->(.*)<!--:-->(.*)/", $post_title, $post_title_regex_output_array);
+		
+		// print_r($post_title_regex_output_array);
+		
+		if ( sizeof($post_title_regex_output_array) >= 1 ) {
+			// print $post_title_regex_output_array[2];
+			$post_title = strip_tags($post_title_regex_output_array[2]);
+		} else {
+			$post_title = '';
+		}
+		
+		
+		
 		// decreated on 161121-1030
 		// REF
 		// 解決PHP substr切割中文字問題 @ Bruse的日誌 __ 隨意窩 Xuite日誌.html 
