@@ -13,11 +13,92 @@
 	
 	// SELECT * FROM `wp_posts` WHERE post_type = 'slideshow' AND post_status = 'publish' ORDER BY post_date DESC LIMIT 0,5
 
-	$content_array = $wordpress_posts->getPostContentList('4767', '1'); // 徵人	
+	$content_array = $wordpress_posts->getPostSlider('5'); // Slide
 	// print_r($content_array);
 	// SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '5' ORDER BY a.post_date DESC Limit 0, 10
+	
+	print "<section id=\"main-slider\" class=\"no-margin\">\n";
+		print "\t<div class=\"carousel slide\">\n";
+			print "\t\t<ol class=\"carousel-indicators\">\n";
+	$counter = 0;
 	foreach ($content_array as $key => $value) {
+		if ( $counter == 0) { 
+				print "\t\t\t<li data-target=\"#main-slider\" data-slide-to=\"".$counter."\" class=\"active\"></li>\n"; 
+		} else {
+				print "\t\t\t<li data-target=\"#main-slider\" data-slide-to=\"".$counter."\"></li>\n";
+		}
+		$counter+=1;
+	}
+			print "\t\t</ol>\n";	
+			print "\t\t<div class=\"carousel-inner\">\n";
+			
+	$counter = 0;
+	foreach ($content_array as $key => $value) {
+		
+		$PostMeta_List = $wordpress_posts->getPostMeta_List($value['ID']); // Slide
+		
+		// wpzoom_slide_url
+		// _thumbnail_id
+		$PostAttachmentContent = array();
+		$wpzoom_slide_url = '';
+		$thumbnail_id = '';		
+		if ( sizeof($PostMeta_List) >= 1 ) {
+			// print_r($PostMeta_List);
 
+			
+			foreach ($PostMeta_List as $key2 => $value2) {
+				// print_r($value2);				
+				if ( $value2['meta_key'] == 'wpzoom_slide_url') {
+					$wpzoom_slide_url = $value2['meta_value'];
+				}			
+				if ( $value2['meta_key'] == '_thumbnail_id') {
+					$thumbnail_id = $value2['meta_value'];
+				}
+
+				
+			}			
+		}
+		# print $wpzoom_slide_url;
+		# print $thumbnail_id;
+		$PostAttachmentContent = $wordpress_posts->getPostAttachmentContent($thumbnail_id);
+		// print_r($PostAttachmentContent);
+		// print $PostAttachmentContent[0]['guid'];
+		$wpzoom_slide_url = str_replace("http://www.oc.ntu.edu.tw/?p=","",$wpzoom_slide_url);
+		
+		if ( $counter == 0) { 
+				print "\t\t\t<div class=\"item active\" style=\"background-image: url(".$PostAttachmentContent[0]['guid'].")\">\n";
+		} else {  
+				print "\t\t\t<div class=\"item \" style=\"background-image: url(".$PostAttachmentContent[0]['guid'].")\">\n";
+		}
+					print "\t\t\t\t<div class=\"container\">\n";
+						print "\t\t\t\t\t<div class=\"container\">\n";
+							print "\t\t\t\t\t\t<div class=\"row slide-margin\">\n";
+								print "\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n";
+									print "\t\t\t\t\t\t\t\t<div class=\"carousel-content\">\n";
+										print "\t\t\t\t\t\t\t\t\t<h1 class=\"animation animated-item-1\">".$value['post_title']."</h1>\n";
+										print "\t\t\t\t\t\t\t\t\t<h2 class=\"animation animated-item-2\">".$value['post_content']."</h2>\n";
+										print "\t\t\t\t\t\t\t\t\t<a class=\"btn-slide animation animated-item-3\" href=\"page.php?p=".$wpzoom_slide_url."\">Read More</a>\n";
+									print "\t\t\t\t\t\t\t\t</div>\n";
+								print "\t\t\t\t\t\t\t</div>\n";
+							print "\t\t\t\t\t\t</div>\n";
+						print "\t\t\t\t\t</div>\n";
+					print "\t\t\t\t</div>\n";
+				print "\t\t\t</div><!--/.item-->\n";
+		$counter+=1;
+	}
+			print "\t\t</div><!--/.carousel-inner-->\n";
+		print "\t</div><!--/.carousel-->\n";
+		print "\t<a class=\"prev hidden-xs\" href=\"#main-slider\" data-slide=\"prev\">\n";
+			print "\t\t<i class=\"fa fa-chevron-left\"></i>\n";
+		print "\t</a>\n";
+		print "\t<a class=\"next hidden-xs\" href=\"#main-slider\" data-slide=\"next\">\n";
+			print "\t\t<i class=\"fa fa-chevron-right\"></i>\n";
+		print "\t</a>\n";
+	print "</setcion>\n";
+	
+	
+	
+	
 /*
 <section id="main-slider" class="no-margin">
 <div class="carousel slide">

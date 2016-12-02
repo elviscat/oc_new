@@ -240,9 +240,30 @@ class WORDPRESS_POSTS
 		
 		settype($post_type, 'integer');
 		
-
 		// please note %d in the format string, using %s would be meaningless
 		$query = sprintf("SELECT * FROM `wp_posts` WHERE ID = '%d'", $post_id);
+		
+		
+		$stmt = $this->conn->prepare($query);
+		// initialise an array for the results 
+		$results = array();
+		if ($stmt->execute()) {
+			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+				$results[] = $row;
+			}
+		}
+		return $results;
+	}
+	
+	// // SELECT * FROM `wp_posts` WHERE post_type = 'slideshow' AND post_status = 'publish' ORDER BY post_date DESC LIMIT 0,5
+	public function getPostSlider($number_of_slide)
+	{
+		
+		settype($number_of_slide, 'integer');
+		
+
+		// please note %d in the format string, using %s would be meaningless
+		$query = sprintf("SELECT * FROM `wp_posts` WHERE post_type = 'slideshow' AND post_status = 'publish' ORDER BY post_date DESC LIMIT 0,%d", $number_of_slide);
 		
 		
 		$stmt = $this->conn->prepare($query);
