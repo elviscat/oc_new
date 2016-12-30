@@ -1,6 +1,7 @@
 <?php
 	require_once('class.wordpress_posts.php');
 	$wordpress_posts = new WORDPRESS_POSTS();
+
 	ini_set('display_errors', 1);
 	error_reporting(~0);
 
@@ -17,20 +18,20 @@
 	// print_r($content_array);
 	// SELECT  a.id, a.post_title, a.post_content, a.post_date, a.post_status, b.term_taxonomy_id, b.object_id FROM `wp_posts` as a, `wp_term_relationships` as b  WHERE b.object_id = a.id AND b.term_taxonomy_id = '5' ORDER BY a.post_date DESC Limit 0, 10
 	
-	print "<section id=\"main-slider\" class=\"no-margin\">\n";
-		print "\t<div class=\"carousel slide\">\n";
-			print "\t\t<ol class=\"carousel-indicators\">\n";
+	print "\t<section id=\"main-slider\" class=\"no-margin\">\n";
+		print "\t\t<div class=\"carousel slide\">\n";
+			print "\t\t\t<ol class=\"carousel-indicators\">\n";
 	$counter = 0;
 	foreach ($content_array as $key => $value) {
 		if ( $counter == 0) { 
-				print "\t\t\t<li data-target=\"#main-slider\" data-slide-to=\"".$counter."\" class=\"active\"></li>\n"; 
+				print "\t\t\t\t<li data-target=\"#main-slider\" data-slide-to=\"".$counter."\" class=\"active\"></li>\n"; 
 		} else {
-				print "\t\t\t<li data-target=\"#main-slider\" data-slide-to=\"".$counter."\"></li>\n";
+				print "\t\t\t\t<li data-target=\"#main-slider\" data-slide-to=\"".$counter."\"></li>\n";
 		}
 		$counter+=1;
 	}
-			print "\t\t</ol>\n";	
-			print "\t\t<div class=\"carousel-inner\">\n";
+			print "\t\t\t</ol>\n";	
+			print "\t\t\t<div class=\"carousel-inner\">\n";
 			
 	$counter = 0;
 	foreach ($content_array as $key => $value) {
@@ -66,35 +67,44 @@
 		$wpzoom_slide_url = str_replace("http://www.oc.ntu.edu.tw/?p=","",$wpzoom_slide_url);
 		
 		if ( $counter == 0) { 
-				print "\t\t\t<div class=\"item active\" style=\"background-image: url(".$PostAttachmentContent[0]['guid'].")\">\n";
+				print "\t\t\t\t<div class=\"item active\" style=\"background-image: url(".$PostAttachmentContent[0]['guid'].")\">\n";
 		} else {  
-				print "\t\t\t<div class=\"item \" style=\"background-image: url(".$PostAttachmentContent[0]['guid'].")\">\n";
+				print "\t\t\t\t<div class=\"item\" style=\"background-image: url(".$PostAttachmentContent[0]['guid'].")\">\n";
 		}
-					print "\t\t\t\t<div class=\"container\">\n";
-						print "\t\t\t\t\t<div class=\"container\">\n";
-							print "\t\t\t\t\t\t<div class=\"row slide-margin\">\n";
-								print "\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n";
-									print "\t\t\t\t\t\t\t\t<div class=\"carousel-content\">\n";
-										print "\t\t\t\t\t\t\t\t\t<h1 class=\"animation animated-item-1\">".$value['post_title']."</h1>\n";
-										print "\t\t\t\t\t\t\t\t\t<h2 class=\"animation animated-item-2\">".$value['post_content']."</h2>\n";
+					print "\t\t\t\t\t<div class=\"container\">\n";
+						// print "\t\t\t\t\t<div class=\"container\">\n";
+						print "\t\t\t\t\t\t<div class=\"row slide-margin\">\n";
+							print "\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n";
+								print "\t\t\t\t\t\t\t\t<div class=\"carousel-content\">\n";
+									print "\t\t\t\t\t\t\t\t\t<h1 class=\"animation animated-item-1\">".$value['post_title']."</h1>\n";
+									print "\t\t\t\t\t\t\t\t\t<h2 class=\"animation animated-item-2\">".$value['post_content']."</h2>\n";
+									
+
+
+
+									$content_array = $wordpress_posts->getPostContent($wpzoom_slide_url);
+									if ( sizeof($content_array) == 1) {
 										print "\t\t\t\t\t\t\t\t\t<a class=\"btn-slide animation animated-item-3\" href=\"page.php?p=".$wpzoom_slide_url."\">Read More</a>\n";
-									print "\t\t\t\t\t\t\t\t</div>\n";
-								print "\t\t\t\t\t\t\t</div>\n";
-							print "\t\t\t\t\t\t</div>\n";
-						print "\t\t\t\t\t</div>\n";
-					print "\t\t\t\t</div>\n";
-				print "\t\t\t</div><!--/.item-->\n";
+									} else {
+										// print "\t\t\t\t\t\t\t\t\t<a class=\"btn-slide animation animated-item-3\" href=\"page.php?p=".$wpzoom_slide_url."\">Read More</a>\n";
+									}
+								print "\t\t\t\t\t\t\t\t</div>\n";
+							print "\t\t\t\t\t\t\t</div>\n";
+						print "\t\t\t\t\t\t</div>\n";
+						// print "\t\t\t\t\t</div>\n";
+					print "\t\t\t\t\t</div>\n";
+				print "\t\t\t\t</div><!--/.item-->\n";
 		$counter+=1;
 	}
-			print "\t\t</div><!--/.carousel-inner-->\n";
-		print "\t</div><!--/.carousel-->\n";
-		print "\t<a class=\"prev hidden-xs\" href=\"#main-slider\" data-slide=\"prev\">\n";
+			print "\t\t\t</div><!--/.carousel-inner-->\n";
+		print "\t\t</div><!--/.carousel-->\n";
+		print "\t\t<a class=\"prev hidden-xs\" href=\"#main-slider\" data-slide=\"prev\">\n";
 			print "\t\t<i class=\"fa fa-chevron-left\"></i>\n";
-		print "\t</a>\n";
-		print "\t<a class=\"next hidden-xs\" href=\"#main-slider\" data-slide=\"next\">\n";
-			print "\t\t<i class=\"fa fa-chevron-right\"></i>\n";
-		print "\t</a>\n";
-	print "</setcion>\n";
+		print "\t\t</a>\n";
+		print "\t\t<a class=\"next hidden-xs\" href=\"#main-slider\" data-slide=\"next\">\n";
+			print "\t\t\t<i class=\"fa fa-chevron-right\"></i>\n";
+		print "\t\t</a>\n";
+	print "\t</section><!--/#main-slider-->\n";
 	
 	
 	
