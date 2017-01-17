@@ -25,9 +25,10 @@
 	
 	
 	print "<section id=\"post_list_by_category\" class=\"container\">\n";
-		print "<div class=\"left\">\n";
+		print "<div class=\"center\">\n";
 			print "<div class=\"col-xs-12 col-sm-12 blog-content\">\n";
-				print "<h2>".$page_title."</h2>\n";
+				print "<h3>".$page_title."</h3>\n";
+			print "</div>\n";
 
 	$PostMeta_List = $wordpress_posts->getPostMeta_List($post_id);
 	if ( sizeof($PostMeta_List) >= 1 ) {
@@ -71,16 +72,32 @@
 		$PostAttachmentContent = $wordpress_posts->getPostAttachmentContent($image_photo_id);
 		// print_r($PostAttachmentContent);
 		
-		print "<h2> ".$name."</h2><br>\n";
-		print "<img src=\"".$PostAttachmentContent[0]['guid']."\"><br>\n";
-		print "<b>職稱: </b>".$position."</h3><br>\n";
-		print "<b>辦公室: </b>".$office."<br>\n";
-		print "<b>電話: </b>".$tel."<br>\n";
-		print "<b>E-mail: </b>".$email."<br>\n";
-		print "<b>業務內容: </b>".$dealing."<br>\n";
 		
 		
+			print "<div class=\"col-xs-4 col-sm-4 blog-content\">\n";
+				print "<img src=\"".$PostAttachmentContent[0]['guid']."\" width=\"300\"><br>\n";
+			print "</div>\n";
+			print "<div class=\"col-xs-8 col-sm-8 blog-content\">\n";
+				// print "<h2>".$name."</h2>\n";
+				// print "<b>姓名:</b> ".$name."<br>\n";
+				print "<h3 style=\"text-align:left;\">".$name."</h3>\n";
+				print "<p style=\"text-align:left;\">";
+				// print "<img src=\"".$PostAttachmentContent[0]['guid']."\"><br>\n";
+				print "<b>職稱: </b>".$position."</h3><br>\n";
+				print "<b>辦公室: </b>".$office."<br>\n";
+				print "<b>電話: </b>".$tel."<br>\n";
+				print "<b>E-mail: </b>".$email."<br>\n";
+				print "<b>業務內容: </b>".$dealing."<br>\n";
+				print "</p>";
+			print "</div>\n";
+		print "</div>";
 		
+		print "<div class=\"center\">\n";
+			print "<div class=\"col-xs-12 col-sm-12 blog-content\">\n";
+				print "<br><br>";
+			print "</div>\n";
+				
+		print "</div>";
 		
 	}
 				

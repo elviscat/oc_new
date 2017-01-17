@@ -25,10 +25,10 @@
 	
 	
 	print "<section id=\"post_list_by_category\" class=\"container\">\n";
-		print "<div class=\"left\">\n";
+		print "<div class=\"center\">\n";
 			print "<div class=\"col-xs-12 col-sm-12 blog-content\">\n";
-				print "<h2>".$page_title."</h2>\n";
-
+				print "<h3>".$page_title."</h3>\n";
+			print "</div>\n";
 	$PostMeta_List = $wordpress_posts->getPostMeta_List($post_id);
 	if ( sizeof($PostMeta_List) >= 1 ) {
 		
@@ -95,27 +95,42 @@
 		$PostAttachmentContent = $wordpress_posts->getPostAttachmentContent($image_photo_id);
 		// print_r($PostAttachmentContent);
 		
-		print "<h2> ".$name."</h2><br>\n";
-		print "<img src=\"".$PostAttachmentContent[0]['guid']."\"><br>\n";
-		print "<h3>".$faculty_degree."</h3><br>\n";
-		print "<b>電話一: </b>".$tel1."<br>\n";
-		print "<b>電話二: </b>".$tel2."<br>\n";
-		print "<b>傳真: </b>".$fax."<br>\n";
-		print "<b>電子郵件一: </b>".$email1."<br>\n";
-		print "<b>電子郵件二: </b>".$email2."<br>\n";
-		print "<b>網站: </b>".$website."<br>\n";
-		print "<b>研究室: </b>".$room."<br>\n";
+			print "<div class=\"col-xs-4 col-sm-4 blog-content\">\n";
+				print "<img src=\"".$PostAttachmentContent[0]['guid']."\" width=\"300\"><br>\n";
+			print "</div>\n";
+			print "<div class=\"col-xs-8 col-sm-8 blog-content\">\n";
+				print "<h3 style=\"text-align:left;\">".$name." ".$faculty_degree."</h3>\n";
+				print "<p style=\"text-align:left;\">";
+				print "<b>電話一: </b>".$tel1."<br>\n";
+				print "<b>電話二: </b>".$tel2."<br>\n";
+				print "<b>傳真: </b>".$fax."<br>\n";
+				print "<b>電子郵件一: </b>".$email1."<br>\n";
+				print "<b>電子郵件二: </b>".$email2."<br>\n";
+				print "<b>網站: </b>".$website."<br>\n";
+				print "<b>研究室: </b>".$room."<br>\n";
+				print "</p>";
+			print "</div>\n";
 		
-		print "<b>專長領域: </b>".$domain."<br>\n";
-		print "<b>學經歷: </b>".$exp."<br>\n";
-		print "<b>研究成果與著作: </b><br>".$publishes."<br>\n";
+		print "</div>\n";
 		
-		
-		
-	}
+		print "<div class=\"center\">\n";
+			print "<div class=\"col-xs-12 col-sm-12 blog-content\">\n";
+				print "<br><br>";
+			print "</div>\n";
 				
+		print "</div>";
+		
+		print "<div class=\"left\">\n";
+			print "<div class=\"col-xs-10 col-sm-10 blog-content\">";
+				// print "<p style=\"text-align:left;  border-bottom-style: double;\">";
+				print "<b>專長領域: </b><br>".$domain."<br>\n";
+				print "<b>學經歷: </b><br>".$exp."<br>\n";
+				print "<b>研究成果與著作: </b><br>".$publishes."<br>\n";
+				// print "</p>";
 			print "</div>\n";
 		print "</div>\n";
+	}			
+		
 	print "</section>\n";	
 	
 
